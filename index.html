@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.png">
+  <meta name="theme-color" content="#2e8b57">
+  <title>Quadro de Metas Sem Açúcar</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2e8b57;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 800px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    th {
+      background-color: #add8e6;
+      color: #000;
+    }
+    td.star {
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    td.star.active {
+      background-color: #ffeb3b;
+      color: #000;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quadro de Metas Sem Açúcar ⭐</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Semana</th>
+        <th>Seg</th>
+        <th>Ter</th>
+        <th>Qua</th>
+        <th>Qui</th>
+        <th>Sex</th>
+        <th>Sáb</th>
+        <th>Dom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <script>
+        for (let semana = 1; semana <= 4; semana++) {
+          document.write('<tr><td>Semana ' + semana + '</td>');
+          for (let dia = 1; dia <= 7; dia++) {
+            document.write('<td class="star">☆</td>');
+          }
+          document.write('</tr>');
+        }
+      </script>
+    </tbody>
+  </table>
+
+  <script>
+    document.querySelectorAll('td.star').forEach(cell => {
+      cell.addEventListener('click', () => {
+        cell.classList.toggle('active');
+        cell.textContent = cell.classList.contains('active') ? '★' : '☆';
+      });
+    });
+  </script>
+</body>
+</html>
